@@ -12,8 +12,8 @@ RUN apt-get update && \
         zip \
         unzip \
         libzip-dev \
-        chromium \
-        chromium-driver \
+        # chromium \
+        # chromium-driver \
     && docker-php-ext-install -j$(nproc) \
         zip \
         pdo_mysql \
@@ -48,6 +48,11 @@ COPY composer.json composer.lock ./
 
 RUN composer install --no-scripts
 
+RUN vendor/bin/bdi detect drivers
+
+# RUN mkdir -p /var/www/html/.panther-tmp && \
+#     chown -R 777 /var/www/html/.panther-tmp
+#
 COPY . .
 
 EXPOSE 80

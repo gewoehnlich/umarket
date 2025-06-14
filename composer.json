@@ -12,12 +12,15 @@
             "email": "oomyse@gmail.com"
         }
     ],
-    "require-dev": {
-        "symfony/panther": "^2.2"
-    },
     "require": {
         "symfony/dom-crawler": "^7.3",
         "symfony/css-selector": "^7.3",
-        "symfony/http-client": "^7.3"
+        "symfony/http-client": "^7.3",
+        "symfony/panther": "^2.2",
+        "symfony/error-handler": "^7.3",
+        "dbrekelmans/bdi": "^1.4"
+    },
+    "scripts": {
+      "dev": "php -S 127.0.0.1:8000 -t public"
     }
 }
