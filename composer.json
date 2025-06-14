@@ -1,0 +1,23 @@
+{
+    "name": "gewoehnlich/umarket",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Gewoehnlich\\Umarket\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gewoehnlich",
+            "email": "oomyse@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/panther": "^2.2"
+    },
+    "require": {
+        "symfony/dom-crawler": "^7.3",
+        "symfony/css-selector": "^7.3",
+        "symfony/http-client": "^7.3"
+    }
+}
