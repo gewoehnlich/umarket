@@ -11,7 +11,11 @@ RUN apt-get update && \
         libxml2-dev \
         zip \
         unzip \
+        libzip-dev \
+        chromium \
+        chromium-driver \
     && docker-php-ext-install -j$(nproc) \
+        zip \
         pdo_mysql \
         mbstring \
         exif \
