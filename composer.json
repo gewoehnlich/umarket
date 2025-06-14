@@ -18,7 +18,10 @@
         "symfony/http-client": "^7.3",
         "symfony/panther": "^2.2",
         "symfony/error-handler": "^7.3",
-        "dbrekelmans/bdi": "^1.4"
+        "dbrekelmans/bdi": "^1.4",
+        "symfony/process": "^7.3",
+        "symfony/http-foundation": "^7.3",
+        "symfony/validator": "^7.3"
     },
     "scripts": {
       "dev": "php -S 127.0.0.1:8000 -t public"
