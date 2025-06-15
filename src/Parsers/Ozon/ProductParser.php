@@ -86,7 +86,7 @@ final class ProductParser extends Parser
         return $this->crawler
             ->filter('div[data-widget="webGallery"] img')
             ->each(function (Crawler $node) {
-                $node->text();
+                return $node->attr('src') ?? $node->attr('srcset');
             });
     }
 
