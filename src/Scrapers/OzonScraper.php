@@ -4,7 +4,7 @@ namespace Gewoehnlich\Umarket\Scrapers;
 
 use Gewoehnlich\Umarket\Core\WebScraper;
 use Gewoehnlich\Umarket\Core\Webpage;
-use Gewoehnlich\Umarket\Parsers\Ozon\Product;
+use Gewoehnlich\Umarket\Parsers\Ozon\ProductParser;
 
 final class OzonScraper extends WebScraper
 {
@@ -25,6 +25,6 @@ final class OzonScraper extends WebScraper
     {
         $webpage = Webpage::fetch($url);
 
-        return Product::parse($webpage);
+        return ProductParser::parse($webpage);
     }
 }
