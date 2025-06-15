@@ -14,7 +14,7 @@ final class ProductDTO extends DTO
     public readonly string $manufacturer;
     public readonly array $images;
     public readonly string $description;
-    public readonly string $characteristics;
+    public readonly array $characteristics;
 
     public function __construct(
         string $title,
@@ -25,7 +25,7 @@ final class ProductDTO extends DTO
         string $manufacturer,
         array $images,
         string $description,
-        string $characteristics
+        array $characteristics
     ) {
         $this->title = $title;
         $this->category = $category;

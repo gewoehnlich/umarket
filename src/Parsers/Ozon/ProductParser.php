@@ -52,10 +52,8 @@ final class ProductParser extends Parser
     private function type(): string
     {
         return $this->crawler
-            ->filter('div[data-widget="webShortCharacteristics"] ' .
-                '> div:nth-of-type(2) ' .
-                '> div:first-child ' .
-                '> div:last-child span')
+            ->filter('div[id="section-characteristics"]')
+            ->filterXPath('//dt[span[contains(text(), "Тип")]]/following-sibling::dd[1]')
             ->text();
     }
 
@@ -63,34 +61,61 @@ final class ProductParser extends Parser
     {
         return $this->crawler
             ->filter('div[id="section-characteristics"]')
+            ->filterXPath('//dt[span[contains(text(), "Страна")]]/following-sibling::dd[1]')
             ->text();
-            // ->filterXPath('//*[contains(text(), "Страна")]/..')
-            // ->last()
-            // ->text();
     }
 
     private function sku(): int
     {
-        return 0;
+        return $this->crawler
+            ->filter('div[id="section-characteristics"]')
+            ->filterXPath('//dt[span[contains(text(), "Артикул")]]/following-sibling::dd[1]')
+            ->text();
     }
 
     private function manufacturer(): string
     {
-        return '';
+        return $this->crawler
+            ->filter('div[id="section-characteristics"]')
+            ->filterXPath('//dt[span[contains(text(), "Страна-изготовитель")]]/following-sibling::dd[1]')
+            ->text();
     }
 
     private function images(): array
     {
-        return [];
+        return $this->crawler
+            ->filter('div[data-widget="webGallery"] img')
+            ->each(function (Crawler $node) {
+                $node->text();
+            });
     }
 
     private function description(): string
     {
-        return '';
+        return $this->crawler
+            ->filter('div[id="section-description"] > div:nth-child(2)')
+            ->text();
     }
 
-    private function characteristics(): string
+    private function characteristics(): array
     {
-        return '';
+        $result = [];
+
+        $this->crawler
+            ->filter('div[id="section-characteristics"] dl')
+            ->each(function (Crawler $node) use (&$result) {
+                $label = $node->filter('dt')->text(null, true);
+                $valueNode = $node->filter('dd');
+
+                $valueParts = $valueNode->filterXPath('//dd//text() | //dd//a')->each(
+                    fn(Crawler $part) => trim($part->text(null, true))
+                );
+
+                $value = implode(', ', array_filter($valueParts));
+
+                $result[$label] = $value;
+            });
+
+        return $result;
     }
 }
