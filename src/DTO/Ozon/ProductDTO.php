@@ -38,14 +38,14 @@ final class ProductDTO extends DTO
         $this->characteristics = $characteristics;
     }
 
-    public function __toArray(): array
+    public function toArray(): array
     {
         return [
             'Название'            => $this->title,
             'Категория'           => $this->category,
             'Тип'                 => $this->type,
             'Страна'              => $this->country,
-            'Партномер'           => $this->sku,
+            'Артикул'             => $this->sku,
             'Страна-изготовитель' => $this->manufacturer,
             'Изображения'         => $this->images,
             'Описание'            => $this->description,

@@ -8,7 +8,6 @@ use Gewoehnlich\Umarket\DTO\Ozon\ProductDTO;
 
 final class ProductParser extends Parser
 {
-    private array $data = [];
     private Crawler $crawler;
 
     public function __construct(string $webpage)
@@ -32,7 +31,7 @@ final class ProductParser extends Parser
             characteristics: $product->characteristics(),
         );
 
-        return (array) $dto;
+        return $dto->toArray();
     }
 
     private function title(): string
