@@ -6,7 +6,7 @@ use Gewoehnlich\Umarket\Core\WebScraper;
 use Gewoehnlich\Umarket\Core\Webpage;
 use Gewoehnlich\Umarket\Parsers\Ozon\Product;
 
-abstract final class OzonScraper extends WebScraper
+final class OzonScraper extends WebScraper
 {
     final public static function handle(string $url): array
     {
@@ -21,7 +21,7 @@ abstract final class OzonScraper extends WebScraper
         ];
     }
 
-    final private static function product(string $url): array
+    private static function product(string $url): array
     {
         $webpage = Webpage::fetch($url);
 
