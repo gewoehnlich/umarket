@@ -1,4 +1,4 @@
-FROM php:8.4.6-fpm
+FROM php:8.4.8-fpm
 
 WORKDIR /var/www/html
 
@@ -12,8 +12,6 @@ RUN apt-get update && \
         zip \
         unzip \
         libzip-dev \
-        # chromium \
-        # chromium-driver \
     && docker-php-ext-install -j$(nproc) \
         zip \
         pdo_mysql \
@@ -40,19 +38,12 @@ RUN { \
     echo 'session.use_strict_mode = 1'; \
 } > /usr/local/etc/php/conf.d/strict.ini
 
-# RUN git config --global --add safe.directory /var/www/html
-
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY composer.json composer.lock ./
 
 RUN composer install --no-scripts
 
-RUN vendor/bin/bdi detect drivers
-
-# RUN mkdir -p /var/www/html/.panther-tmp && \
-#     chown -R 777 /var/www/html/.panther-tmp
-#
 COPY . .
 
 EXPOSE 80

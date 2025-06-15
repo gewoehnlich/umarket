@@ -19,6 +19,9 @@
     * docker-compose: 2.37.1
 
 ## Установка
+**[package-manager] заменить на соответствующий вашему дистрибутиву**
+**Например: [apt, dnf или pacman]**
+
 * ### Docker
 ```
 git clone https://github.com/gewoehnlich/umarket.git
@@ -44,9 +47,6 @@ docker compose down -v      -- удалить образ
 ```
 
 * ### Вручную
-**[package-manager] заменить на соответствующий вашему дистрибутиву
-Например: [apt, dnf или pacman]**
-
 ```
 sudo [package-manager] update
 
