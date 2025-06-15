@@ -1,0 +1,19 @@
+{
+  "typeCheckingMode": "strict",
+  "reportMissingTypeStubs": true,
+  "reportMissingImports": true,
+  "reportOptionalSubscript": true,
+  "reportOptionalMemberAccess": true,
+  "reportOptionalCall": true,
+  "reportOptionalIterable": true,
+  "reportGeneralTypeIssues": true,
+  "reportPrivateUsage": true,
+  "reportUnnecessaryTypeIgnoreComment": true,
+  "reportUnknownParameterType": true,
+  "reportUnknownArgumentType": true,
+  "reportUnknownLambdaType": true,
+  "reportUnknownVariableType": true,
+  "reportUntypedFunctionDecorator": true,
+  "reportUnnecessaryIsInstance": true,
+  "reportUnboundVariable": true
+}

@@ -2,22 +2,24 @@
 
 namespace Gewoehnlich\Umarket\Core;
 
-use Symfony\Component\Panther\Client;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 final class Webpage
 {
     final public static function fetch(string $url): string
     {
-        $client = Client::createChromeClient();
+        $process = new Process(['python', 'src/Webpage/fetch.py', $url]);
+        $process->run();
 
-        $response = $client->request('GET', 'https://nowsecure.nl');
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
 
-        $html = $client->getPageSource();
+        $html = $process->getOutput();
 
-        file_put_contents('test.html', $html);
+        file_put_contents("public/ozon.html", $html);
 
-        die();
-
-        return $url;
+        return $html;
     }
 }
