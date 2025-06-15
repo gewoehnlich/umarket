@@ -2,11 +2,9 @@
 
 namespace Gewoehnlich\Umarket\Core;
 
-use Gewoehnlich\Umarket\Websites\Website;
-
-final class Parser
+abstract class Parser
 {
-    public static function data(string $data): array
+    public static function parse(string $webpage): array
     {
         //
     }
