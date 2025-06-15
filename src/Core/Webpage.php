@@ -9,16 +9,18 @@ final class Webpage
 {
     final public static function fetch(string $url): string
     {
-        $process = new Process(['python', 'src/Webpage/fetch.py', $url]);
-        $process->run();
+        // $process = new Process(['python', 'src/Webpage/fetch.py', $url]);
+        // $process->run();
+        //
+        // if (!$process->isSuccessful()) {
+        //     throw new ProcessFailedException($process);
+        // }
+        //
+        // $html = $process->getOutput();
+        //
+        // file_put_contents("public/ozon.html", $html);
 
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        $html = $process->getOutput();
-
-        file_put_contents("public/ozon.html", $html);
+        $html = file_get_contents('public/ozon.html');
 
         return $html;
     }
