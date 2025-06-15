@@ -15,12 +15,8 @@
     "require": {
         "symfony/dom-crawler": "^7.3",
         "symfony/css-selector": "^7.3",
-        "symfony/http-client": "^7.3",
-        "symfony/panther": "^2.2",
         "symfony/error-handler": "^7.3",
-        "dbrekelmans/bdi": "^1.4",
         "symfony/process": "^7.3",
-        "symfony/http-foundation": "^7.3",
         "symfony/validator": "^7.3"
     },
     "scripts": {

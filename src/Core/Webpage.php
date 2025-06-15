@@ -18,7 +18,7 @@ final class Webpage
 
         $html = $process->getOutput();
 
-        file_put_contents("public/ozon.html", $html);
+        // file_put_contents("public/ozon.html", $html);
 
         // $html = file_get_contents('public/test.html');
 
