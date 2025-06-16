@@ -13,40 +13,11 @@
     * symfony/css-selector: ^7.3
     * symfony/error-handler: ^7.3
     * symfony/process: ^7.3
-    * symfony/validator: ^7.3
-* (Опционально)
-    * docker: 28.2.2
-    * docker-compose: 2.37.1
 
 ## Установка
 **[package-manager] заменить на соответствующий вашему дистрибутиву**
 **Например: [apt, dnf или pacman]**
 
-* ### Docker
-```
-git clone https://github.com/gewoehnlich/umarket.git
-
-sudo [package-manager] install docker
-sudo [package-manager] install docker-compose
-```
-
-Если удобно, можно либо запустить образ в `Docker` через `Makefile`:
-```
-make build   -- собрать образ в первый раз
-make up      -- запустить готовый образ
-make down    -- остановить образ
-make delete  -- удалить образ
-```
-
-Или можно запускать вручную:
-```
-docker compose up --build   -- собрать образ в первый раз
-docker compose up           -- запустить готовый образ
-docker compose down         -- остановить образ
-docker compose down -v      -- удалить образ
-```
-
-* ### Вручную
 ```
 sudo [package-manager] update
 

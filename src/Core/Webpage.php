@@ -9,7 +9,7 @@ final class Webpage
 {
     final public static function fetch(string $url): string
     {
-        $process = new Process(['python3', 'src/Webpage/fetch.py', $url]);
+        $process = new Process(['python', 'src/Webpage/fetch.py', $url]);
         $process->run();
 
         if (!$process->isSuccessful()) {
@@ -17,10 +17,6 @@ final class Webpage
         }
 
         $html = $process->getOutput();
-
-        // file_put_contents("public/ozon.html", $html);
-
-        // $html = file_get_contents('public/test.html');
 
         return $html;
     }

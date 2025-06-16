@@ -21,6 +21,12 @@ RUN apt-get update && \
         bcmath \
         gd
 
+RUN apt-get install -y python3 python3-pip python3-venv && \
+    python3 -m venv .venv && \
+    . .venv/bin/activate && \
+    pip install --upgrade pip setuptools && \
+    pip install curl_cffi undetected-chromedriver webdriver-manager
+
 RUN { \
     echo ';; Strict PHP Configuration'; \
     echo 'error_reporting = E_ALL'; \

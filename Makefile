@@ -40,4 +40,4 @@ commit:
 	git push origin main
 
 run:
-	docker exec --interactive --tty php.umarket sh # php public/index.php "$(url)"
+	docker exec umarket.app php public/index.php "$(url)"
